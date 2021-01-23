@@ -1,0 +1,16 @@
+name: SilkTouchHands
+version: ${project.version}
+description: Harness the power of the enderman inside of you
+author: visualcody
+website: https://github.com/visual-cody
+main: com.visualcody.silktouchhands.main
+api-version: 1.16
+
+permissions:
+  silktouchhands.silktouch:
+    default: op
+    description: Allows a player to silktouch blocks with their bare hands
+  siltouchhands.*:
+    default: op
+    children:
+      silktouchhands.silktouch: true
