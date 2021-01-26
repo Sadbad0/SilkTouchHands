@@ -41,7 +41,6 @@ public class events implements Listener {
             Material.DROPPER,
             Material.DISPENSER,
             Material.SNOW,
-            Material.CAKE,
             Material.LECTERN,
             Material.WHEAT,
             Material.MELON_STEM,
@@ -50,8 +49,7 @@ public class events implements Listener {
             Material.ATTACHED_PUMPKIN_STEM,
             Material.BEETROOTS,
             Material.END_PORTAL,
-            Material.NETHER_PORTAL,
-            Material.SPAWNER
+            Material.NETHER_PORTAL
     ));
 
     // Unused but could have it so the silktouch effect works as long as your not holding a tool but I think that might break stuff
@@ -97,6 +95,7 @@ public class events implements Listener {
                         if(e.getBlock().getState() instanceof ShulkerBox) return; // Stop doing stuff if its a shulker box as I am not going down that rabbit hole
                         if(e.getBlock().getType().toString().endsWith("WALL_SIGN")) return; // Why Wall signs are a different object to normal signs baffles me
                         if(e.getBlock().getType().toString().startsWith("POTTED")) return; // Way too many potted things to add all to ban list
+                        if(!main.config.getBoolean("infinite_cake") && e.getBlock().getType().equals(Material.CAKE)) return;
                         e.setDropItems(false);
                         ItemStack i = new ItemStack(e.getBlock().getType(), 1);
                         p.getLocation().getWorld().dropItemNaturally(e.getBlock().getLocation(), i);
