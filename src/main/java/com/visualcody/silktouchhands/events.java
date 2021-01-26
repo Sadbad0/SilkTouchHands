@@ -10,11 +10,13 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.EnumSet;
 import java.util.List;
 
 public class events implements Listener {
 
-    private static List<Material> m = new ArrayList<>(List.of(
+    private static EnumSet<Material> m = EnumSet.of(
             Material.AIR,
             Material.REDSTONE_WIRE,
             Material.REDSTONE_WALL_TORCH,
@@ -50,10 +52,10 @@ public class events implements Listener {
             Material.BEETROOTS,
             Material.END_PORTAL,
             Material.NETHER_PORTAL
-    ));
+    );
 
     // Unused but could have it so the silktouch effect works as long as your not holding a tool but I think that might break stuff
-    private static List<Material> tools = new ArrayList<>(List.of(
+    private static EnumSet<Material> tools = EnumSet.of(
             Material.DIAMOND_AXE,
             Material.DIAMOND_HOE,
             Material.DIAMOND_PICKAXE,
@@ -80,12 +82,13 @@ public class events implements Listener {
             Material.WOODEN_SHOVEL,
             Material.WOODEN_SWORD,
             Material.SHEARS
-    ));
+    );
 
 
 
     @EventHandler
     public void onBlockBreak(BlockBreakEvent e) {
+
         Player p = e.getPlayer();
         if(p != null) {
             if(p.getGameMode().equals(GameMode.SURVIVAL) && hasPerm(p)) {
