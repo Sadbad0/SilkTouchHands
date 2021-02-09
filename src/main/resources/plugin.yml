@@ -10,7 +10,7 @@ permissions:
   silktouchhands.silktouch:
     default: op
     description: Allows a player to silktouch blocks with their bare hands
-  siltouchhands.*:
+  silktouchhands.*:
     default: op
     children:
       silktouchhands.silktouch: true
