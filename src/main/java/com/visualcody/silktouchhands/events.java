@@ -90,6 +90,7 @@ public class events implements Listener {
     public void onBlockBreak(BlockBreakEvent e) {
 
         Player p = e.getPlayer();
+        int ic = 1;
         if(p != null) {
             if(p.getGameMode().equals(GameMode.SURVIVAL) && hasPerm(p)) {
                 if(p.getEquipment().getItemInMainHand().getType().equals(Material.AIR)) {
@@ -99,9 +100,11 @@ public class events implements Listener {
                         if(e.getBlock().getType().toString().endsWith("WALL_SIGN")) return; // Why Wall signs are a different object to normal signs baffles me
                         if(e.getBlock().getType().toString().startsWith("POTTED")) return; // Way too many potted things to add all to ban list
                         if(!main.config.getBoolean("infinite_cake") && e.getBlock().getType().equals(Material.CAKE)) return;
+                        if(main.config.getBoolean("double_beds") && e.getBlock().getType().toString().endsWith("BED")) ic = 2;
                         e.setDropItems(false);
                         ItemStack i = new ItemStack(e.getBlock().getType(), 1);
                         p.getLocation().getWorld().dropItemNaturally(e.getBlock().getLocation(), i);
+                        if(ic == 2) p.getLocation().getWorld().dropItemNaturally(e.getBlock().getLocation(), i); // do a 2nd drop because bed
                     }
 
                 }

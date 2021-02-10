@@ -20,7 +20,14 @@ use_permissions: true
 
 ## Infinity Cake
 ## By default this is disabled. it is kind of OP but you can enable it
-## This allows you to slicktouch a cake block. This literally allows infinate food
-## The DreamSMP version of this plugin allows infinate cake but its an option here as it could be too much
+## This allows you to slicktouch a cake block. This literally allows infinite food
+## The DreamSMP version of this plugin allows infinite cake but its an option here as it could be too much
 ## Default false
 infinite_cake: false
+
+## Double Beds
+## By default this is disabled. It is kind of OP but you can enable it
+## This allows you to get double beds. It does create infinite beds which could be used for Netherrite mining
+## The DreamSMP version seems to do this. That may be a bug? Raises questions as to how they do it but either way its here if you want it
+## Default false
+double_beds: false
