@@ -88,7 +88,7 @@ public class events implements Listener {
 
     @EventHandler
     public void onBlockBreak(BlockBreakEvent e) {
-
+        if(e.getBlock().getType().equals(Material.AIR)) return;
         Player p = e.getPlayer();
         int ic = 1;
         if(p != null) {
