@@ -50,6 +50,11 @@ public class events implements Listener {
             Material.PUMPKIN_STEM,
             Material.ATTACHED_PUMPKIN_STEM,
             Material.BEETROOTS,
+            Material.CARROTS,
+            Material.POTATOES,
+            Material.SOUL_TORCH,
+            Material.SOUL_WALL_TORCH,
+            Material.WALL_TORCH,
             Material.END_PORTAL,
             Material.NETHER_PORTAL
     );
@@ -99,6 +104,7 @@ public class events implements Listener {
                         if(e.getBlock().getState() instanceof ShulkerBox) return; // Stop doing stuff if its a shulker box as I am not going down that rabbit hole
                         if(e.getBlock().getType().toString().endsWith("WALL_SIGN")) return; // Why Wall signs are a different object to normal signs baffles me
                         if(e.getBlock().getType().toString().startsWith("POTTED")) return; // Way too many potted things to add all to ban list
+                        if(e.getBlock().getType().toString().endsWith("BANNER")) return; // Forgot about banners dohh
                         if(!main.config.getBoolean("infinite_cake") && e.getBlock().getType().equals(Material.CAKE)) return;
                         if(main.config.getBoolean("double_beds") && e.getBlock().getType().toString().endsWith("BED")) ic = 2;
                         e.setDropItems(false);
